@@ -77,13 +77,14 @@ public class fragmentWord extends Fragment {
                 String[] reqCols = new String[]{"date","address","body","type"};
 
                 ContentResolver cr = getActivity().getContentResolver();
+               // Scenario 3
                 String filter = "body LIKE ? OR body LIKE ? ";
-
+                String[] filterArgs = {word1_,word2_};
                 //Scenario 4
                 //String filter = "body LIKE ? AND  body LIKE ? OR body LIKE ? ";
                 //String[] filterArgs = {completed_word,word1_,word2_};
 
-                String[] filterArgs = {word1_,word2_};
+
                 Cursor cursor = cr.query(uri,reqCols,filter,filterArgs,null);
                 String smsBody = "";
                 if(cursor.moveToFirst()){
